@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 67.25%;
+}
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #373b69;
+  margin: 1rem;
+  height: 100vh;
+  width: 100vw;
+}
+header {
+  text-align: center;
+  margin-top: 3rem;
+  position: fixed;
+  z-index: 1;
+  display: inline-block;
+  width: 100%;
+}
+header input {
+  padding: 1rem;
+  border: none;
+  width: 30%;
+  margin: 1rem;
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+  outline: none;
+  transition: all 0.2s;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+header input::placeholder {
+  text-align: center;
+  font-size: 1.5rem;
+}
+header input:hover {
+  width: 40%;
+}
+.nomovies {
+  color: white;
+  position: absolute;
+  top: 40%;
+  text-align: center;
+}
+.main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 10rem;
+}
+.movie {
+  width: 300px;
+  border-radius: 3px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  margin: 1rem;
+  transition: all 0.2s;
+  overflow: hidden;
+}
+
+.movie:hover {
+  transform: translateY(1px) scale(1.05);
+}
+.movie img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+.movie-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem 1rem;
+  color: #eee;
+  letter-spacing: 1px;
+}
+.movie-info span {
+  background-color: #22254b;
+  border-radius: 3px;
+  padding: 0.25rem 0.5rem;
+  font-weight: bold;
+}
+
+.movie-info span.green {
+  color: rgb(55, 150, 55);
+}
+.movie-info span.orange {
+  color: rgb(238, 157, 35);
+}
+
+.movie-info span.green {
+  color: rgb(221, 69, 23);
+}
