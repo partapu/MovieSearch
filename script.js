@@ -7,6 +7,11 @@ const searchAPI =
 const main = document.querySelector(".main");
 const form = document.querySelector("form");
 const input = document.querySelector("input");
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const close = document.querySelector(".close");
+const overview = document.querySelector(".overview");
+let results = [];
 async function getMovies(APIURL) {
   let movies = await fetch(APIURL);
   movies = await movies.json();
@@ -19,6 +24,7 @@ async function getMovies(APIURL) {
     return;
   }
   console.log(movies.results);
+  results = movies.results;
   movies.results.forEach((element) => {
     const img = document.createElement("img");
     img.src = IMGPATH + element.backdrop_path;
@@ -35,7 +41,7 @@ form.addEventListener("submit", async function (e) {
 });
 
 function addMovie(obj) {
-  const html = `<div class="movie">
+  const html = `<div class="movie" dataid=${obj.id}>
       <img
         src=${obj.backdrop_path === null ? "" : IMGPATH + obj.poster_path}
       />
@@ -54,3 +60,25 @@ function getmovierating(rating) {
   else return "red";
 }
 getMovies(APIURL);
+
+main.addEventListener("click", function (e) {
+  const movie = e.target.closest(".movie");
+  let id = +movie.getAttribute("dataid");
+  results.forEach((e) => {
+    if (e.id === id) {
+      modal.classList.toggle("hidden");
+      overlay.classList.toggle("hidden");
+      overview.textContent = e.overview;
+      return;
+    }
+  });
+});
+
+close.addEventListener("click", function (e) {
+  modal.classList.toggle("hidden");
+  overlay.classList.toggle("hidden");
+});
+overlay.addEventListener("click", function (e) {
+  modal.classList.toggle("hidden");
+  overlay.classList.toggle("hidden");
+});

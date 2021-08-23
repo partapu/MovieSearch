@@ -95,3 +95,46 @@ header input:hover {
 .movie-info span.green {
   color: rgb(221, 69, 23);
 }
+.modal {
+  height: 50%;
+  width: 40%;
+  position: fixed;
+  top: 10%;
+  left: 51%;
+  transform: translate(-50%, 50%);
+  background-color: #eee;
+  z-index: 3;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border-radius: 1rem;
+}
+.modal h2 {
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+  padding: 1rem;
+}
+.modal h3 {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+.modal h1 {
+  margin-top: 1rem;
+}
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+
+  backdrop-filter: blur(2px);
+  z-index: 2;
+}
+
+.hidden {
+  display: none;
+}
