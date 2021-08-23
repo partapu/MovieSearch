@@ -40,6 +40,11 @@ header input::placeholder {
 header input:hover {
   width: 40%;
 }
+.overviewtext {
+  margin: 0.5rem;
+  color: #eee;
+  font-size: 1.3rem;
+}
 .nomovies {
   color: white;
   position: absolute;
