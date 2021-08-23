@@ -110,8 +110,9 @@ header input:hover {
 }
 @media only screen and (max-width: 50rem) {
   .modal {
-    height: 60%;
-    width: 60%;
+    height: 50%;
+    width: 100%;
+    top: 3%;
   }
 }
 .modal h2 {
