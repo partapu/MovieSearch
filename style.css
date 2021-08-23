@@ -108,6 +108,12 @@ header input:hover {
   text-align: center;
   border-radius: 1rem;
 }
+@media only screen and (max-width: 50rem) {
+  .modal {
+    height: 60%;
+    width: 60%;
+  }
+}
 .modal h2 {
   position: absolute;
   right: 1rem;
