@@ -51,7 +51,13 @@ function addMovie(obj) {
     obj.vote_average
   }</span>
       </div>
-    </div>`;
+      <div class="synposis">
+      <h3>OverView:</h3>
+      ${obj.overview};
+      </div>
+    </div>
+
+    `;
   main.insertAdjacentHTML("beforeend", html);
 }
 function getmovierating(rating) {
@@ -61,24 +67,24 @@ function getmovierating(rating) {
 }
 getMovies(APIURL);
 
-main.addEventListener("click", function (e) {
-  const movie = e.target.closest(".movie");
-  let id = +movie.getAttribute("dataid");
-  results.forEach((e) => {
-    if (e.id === id) {
-      modal.classList.toggle("hidden");
-      overlay.classList.toggle("hidden");
-      overview.textContent = e.overview;
-      return;
-    }
-  });
-});
+// main.addEventListener("click", function (e) {
+//   const movie = e.target.closest(".movie");
+//   let id = +movie.getAttribute("dataid");
+//   results.forEach((e) => {
+//     if (e.id === id) {
+//       modal.classList.toggle("hidden");
+//       overlay.classList.toggle("hidden");
+//       overview.textContent = e.overview;
+//       return;
+//     }
+//   });
+// });
 
-close.addEventListener("click", function (e) {
-  modal.classList.toggle("hidden");
-  overlay.classList.toggle("hidden");
-});
-overlay.addEventListener("click", function (e) {
-  modal.classList.toggle("hidden");
-  overlay.classList.toggle("hidden");
-});
+// close.addEventListener("click", function (e) {
+//   modal.classList.toggle("hidden");
+//   overlay.classList.toggle("hidden");
+// });
+// overlay.addEventListener("click", function (e) {
+//   modal.classList.toggle("hidden");
+//   overlay.classList.toggle("hidden");
+// });
