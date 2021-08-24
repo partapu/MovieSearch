@@ -15,7 +15,7 @@ let results = [];
 async function getMovies(APIURL) {
   let movies = await fetch(APIURL);
   movies = await movies.json();
-  if (!movies.results) {
+  if (!movies.results || movies.results.length === 0) {
     const div = document.createElement("div");
     div.innerHTML = "<h1>No Movies are found view other movies<h1>";
     div.classList.add("nomovies");
@@ -32,22 +32,11 @@ async function getMovies(APIURL) {
     addMovie(element);
   });
 }
-const timeOut = function (sec) {
-  new Promise(function (reject) {
-    setTimeout(function () {
-      const div = document.createElement("div");
-      div.innerHTML = "<h1>No Movies are found view other movies<h1>";
-      div.classList.add("nomovies");
-      main.insertAdjacentElement("beforeend", div);
-      reject(new Error("No Movies Found"));
-    }, sec * 1000);
-  });
-};
 form.addEventListener("submit", async function (e) {
   e.preventDefault();
   const searchTerm = input.value;
   main.innerHTML = "";
-  await Promise.race([getMovies(searchAPI + searchTerm), timeOut(10)]);
+  await getMovies(searchAPI + searchTerm);
 });
 
 function addMovie(obj) {
