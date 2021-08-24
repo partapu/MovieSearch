@@ -68,9 +68,6 @@ header input:hover {
   position: relative;
 }
 
-.movie:hover {
-  transform: translateY(1px);
-}
 .movie img {
   width: 100%;
   height: 400px;

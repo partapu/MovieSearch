@@ -32,12 +32,22 @@ async function getMovies(APIURL) {
     addMovie(element);
   });
 }
-
+const timeOut = function (sec) {
+  new Promise(function (reject) {
+    setTimeout(function () {
+      const div = document.createElement("div");
+      div.innerHTML = "<h1>No Movies are found view other movies<h1>";
+      div.classList.add("nomovies");
+      main.insertAdjacentElement("beforeend", div);
+      reject(new Error("No Movies Found"));
+    }, sec * 1000);
+  });
+};
 form.addEventListener("submit", async function (e) {
   e.preventDefault();
   const searchTerm = input.value;
   main.innerHTML = "";
-  await getMovies(searchAPI + searchTerm);
+  await Promise.race([getMovies(searchAPI + searchTerm), timeOut(10)]);
 });
 
 function addMovie(obj) {
